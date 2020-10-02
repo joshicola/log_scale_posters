@@ -1,5 +1,5 @@
 # log_scale_posters
-Various "zoom videos" of multiple scales logarithmically unfolded linear posters.
+Various "zoom videos" of multiple scales logarithmically unfolded linear posters. I would love to see one of these printed out and put in a classroom.
 
 
 ## The Zoom Videos
@@ -18,10 +18,15 @@ Iterative Artwork of Chris Tolworthy rendered into an "Infinite Zoom":
 * [Infinite Zoom](http://www.tedagame.com/zoomvideo/)
 * [YouTube](https://www.youtube.com/watch?v=0vnA_KIojLg)
 
-Cary & Michael Huang's "Scale of the Universe":
+Cary & Michael Huang's "Scale of the Universe" (this is what I want as a poster):
 
 * [Scales of the Universe](https://htwins.net/scale2/)
 * [YouTube](https://www.youtube.com/watch?v=6XHa6EDCBzo)
+
+Kurzgesagt "Universe in a Nutshell" (NOT YET RENDERED) (or this one!!!):
+
+* [Universe in a Nutshell](https://shop-us.kurzgesagt.org/products/universe-in-a-nutshell-app)
+* [YouTube] (https://www.youtube.com/watch?v=2zNxDQNTe2A)
 
 ## Acquiring the videos from YouTube
 Acquiring the videos from YouTube can be accomplished from following the directions [here](https://www.lifewire.com/convert-youtube-videos-to-mp4-with-vlc-media-player-2438324)
@@ -31,10 +36,10 @@ Acquiring the videos from YouTube can be accomplished from following the directi
 ffmpeg -i video.mp4 -r 20 frame_%05d.png
 
 ## "Unfolding" and "Fusing"
+ 
+The following renderings can be created by running the `unfold_and_fuse.py` script with the following parameters:
 
-The following renderings can be created by running the `fold_and_fuse.py` script with the following parameters:
-
-`./fold_and_fuse.py --start=1044 --end=1486 --gap=7 --edge=539 --tolerance=20 --sample_radius=94.5 {cosmic eye frame directory}`
+`./unfold_and_fuse.py --start=1044 --end=1486 --gap=7 --edge=539 --tolerance=20 --sample_radius=94.5 {cosmic eye frame directory}`
 
 ## Results:
 * Powers of Ten:
