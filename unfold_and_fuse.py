@@ -1,3 +1,4 @@
+#!/usr/env python
 import argparse
 import glob
 from pathlib import Path
@@ -14,7 +15,7 @@ def unfold_and_fuse(files, indices, tol, gap, edge, sample_radius, reverse=False
     for i, indx in enumerate(indices):
         fl = files[0].replace("00001", str(indx).zfill(5))
         img = cv.imread(fl)
-        center = (img.shape[1] / 2, img.shape[2] / 2)
+        center = (img.shape[1] / 2, img.shape[0] / 2)
         img2 = cv.logPolar(img, center, sample_radius, cv.WARP_FILL_OUTLIERS)
         if i == 0:
             base_img = img2.copy()
@@ -45,16 +46,11 @@ if __name__ == "__main__":
     parser.add_argument("in_dir", type=str, help="The directory of frames_*.png.")
 
     args = parser.parse_args()
-    # start = 1044
-    # end = 1486
-    # step = 7
-    # edge = 539
-    # tol = 20
-    # sample_radius = 94.5
+    # --start=1044 --end=1486 --gap=7 --edge=539 --tolerance=20 --sample_radius=94.5 /home/josher/Projects/2020.09.19.Powers.Of.Ten/Downloads/cosmiceye
     in_dir = Path(args.in_dir)
-    files = glob.glob(in_dir / "frame_*.png")
+    files = glob.glob(str(in_dir / "frame_*.png"))
     files.sort()
-    indices = range(args.start, args.end + 1)
+    indices = list(range(args.start, args.end + 1))
 
     result = unfold_and_fuse(
         files,
@@ -63,7 +59,7 @@ if __name__ == "__main__":
         args.gap,
         args.edge,
         args.sample_radius,
-        reverse=False,
+        reverse=True,
     )
 
-    cv.imwrite(in_dir / "Result.png", result)
+    cv.imwrite(str(in_dir / "Result.png"), result)

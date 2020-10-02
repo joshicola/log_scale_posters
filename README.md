@@ -28,4 +28,20 @@ Acquiring the videos from YouTube can be accomplished from following the directi
 
 ## Rendering frames
 
-ffmpeg -i zoom-no-watermark.mp4 -r 20 frame_%05d.png
+ffmpeg -i video.mp4 -r 20 frame_%05d.png
+
+## "Unfolding" and "Fusing"
+
+The following renderings can be created by running the `fold_and_fuse.py` script with the following parameters:
+
+`./fold_and_fuse.py --start=1044 --end=1486 --gap=7 --edge=539 --tolerance=20 --sample_radius=94.5 {cosmic eye frame directory}`
+
+## Results:
+* Powers of Ten:
+![Powers of Ten](./result_imgs/PowersOfTen.png)
+* Cosmic Eye:
+![Cosmic Eye](./result_imgs/CosmicEye.png)
+* Tedagame Infinite Zoom:
+![Tedagame](./result_imgs/TedAGame.Infinite.Zoom.png)
+* Scale of the Universe:
+![Scale of the Universe](./result_imgs/ScaleOfTheUniverse.png)
