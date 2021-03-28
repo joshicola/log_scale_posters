@@ -26,7 +26,7 @@ Cary & Michael Huang's "Scale of the Universe" (this is what I want as a poster)
 Kurzgesagt "Universe in a Nutshell" (NOT YET RENDERED) (or this one!!!):
 
 * [Universe in a Nutshell](https://shop-us.kurzgesagt.org/products/universe-in-a-nutshell-app)
-* [YouTube](https://www.youtube.com/watch?v=2zNxDQNTe2A)
+* [YouTube](https://www.youtube.com/watch?v=PGh8SWjnIEI)
 
 ## Acquiring the videos from YouTube
 Acquiring the videos from YouTube can be accomplished from following the directions [here](https://www.lifewire.com/convert-youtube-videos-to-mp4-with-vlc-media-player-2438324)
