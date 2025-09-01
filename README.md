@@ -1,8 +1,9 @@
 # log_scale_posters
+
 Various "zoom videos" of multiple scales logarithmically unfolded linear posters. I would love to see one of these printed out and put in a classroom.
 
-
 ## The Zoom Videos
+
 One of the original "Zoom Videos" from 1977,
 
 * ["POWERS OF TEN AND THE RELATIVE SIZE OF THINGS IN THE UNIVERSE"](https://www.eamesoffice.com/the-work/powers-of-ten/)
@@ -29,6 +30,7 @@ Kurzgesagt "Universe in a Nutshell" (NOT YET RENDERED) (or this one!!!):
 * [YouTube](https://www.youtube.com/watch?v=PGh8SWjnIEI)
 
 ## Acquiring the videos from YouTube
+
 Acquiring the videos from YouTube can be accomplished from following the directions [here](https://www.lifewire.com/convert-youtube-videos-to-mp4-with-vlc-media-player-2438324)
 
 ## Rendering frames
@@ -36,12 +38,13 @@ Acquiring the videos from YouTube can be accomplished from following the directi
 ffmpeg -i video.mp4 -r 20 frame_%05d.png
 
 ## "Unfolding" and "Fusing"
- 
+
 The following renderings can be created by running the `unfold_and_fuse.py` script with the following parameters:
 
 `./unfold_and_fuse.py --start=1044 --end=1486 --gap=7 --edge=539 --tolerance=20 --sample_radius=94.5 {cosmic eye frame directory}`
 
-## Results:
+## Results
+
 * Powers of Ten:
 ![Powers of Ten](./result_imgs/PowersOfTen.png)
 * Cosmic Eye:

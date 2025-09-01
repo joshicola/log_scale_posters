@@ -1,4 +1,21 @@
 #!/usr/env python
+"""Log-polar frame processing for Powers of Ten visualizations.
+
+This module processes video frame sequences to create linear representations of zooming
+sequences. It applies log-polar transformations to convert radial zoom motion into linear
+motion, then stitches together sections from multiple frames to create a panoramic view
+of the entire zoom progression.
+
+The approach is designed for "Powers of Ten" style content where each frame represents
+a different scale level. Instead of viewing the zoom as temporal animation, this creates
+a single horizontal strip showing the entire zoom sequence linearly - useful for
+analyzing scale relationships and creating poster-style visualizations.
+
+The log-polar transformation converts the circular/radial zoom pattern into rectangular
+coordinates where zoom becomes horizontal translation, making it possible to align and
+stitch corresponding regions from different zoom levels.
+"""
+
 import argparse
 import glob
 from pathlib import Path
@@ -7,7 +24,29 @@ import cv2 as cv
 import numpy as np
 
 
-def unfold_and_fuse(files, indices, tol, gap, edge, sample_radius, reverse=False):
+def unfold_and_fuse(
+    files: list,
+    indices: list,
+    tol: int,
+    gap: int,
+    edge: int,
+    sample_radius: float,
+    reverse: bool = False,
+):
+    """Creates a linear panoramic view from log-polar transformed zoom sequence frames.
+
+    Args:
+        files (list): Image file paths with placeholder for frame indices.
+        indices (list): Frame indices to process.
+        tol (int): Tolerance width in pixels for sampling region.
+        gap (int): Gap width between frame sections in final image.
+        edge (int): Right-most pixel position for sampling.
+        sample_radius (float): Sampling radius for log-polar transformation.
+        reverse (bool, optional): Process frames in reverse order. Defaults to False.
+
+    Returns:
+        numpy.ndarray: Stitched panoramic image of the zoom sequence.
+    """
     left = edge - gap - tol
     right = edge
     if reverse:
